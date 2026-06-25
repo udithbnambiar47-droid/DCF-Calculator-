@@ -296,14 +296,15 @@ MOS Buy Price         : ₹21.33
 
 Status: OVERVALUED ❌
 # Future Improvements
-Sensitivity Analysis
-Excel Export
-Graphical Visualization
-Yahoo Finance Integration
-Multi-Stage DCF Model
-Monte Carlo Simulation
-Streamlit Web App
-Author
+  Sensitivity Analysis
+  Excel Export
+  Graphical Visualization
+  Yahoo Finance Integration
+  Multi-Stage DCF Model
+  Monte Carlo Simulation
+  Streamlit Web App
 
+
+Author
 # Udith B
 # & Python Projects | Equity Research | Valuation Models | Financial Analysis 🚀
