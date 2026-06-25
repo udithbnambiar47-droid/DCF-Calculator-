@@ -19,59 +19,41 @@ Determines Enterprise Value.
 Calculates Equity Value.
 Estimates Intrinsic Value per Share.
 Applies a Margin of Safety (MOS).
-Formula Used
+
+# Formula Used
+
 Present Value of Cash Flow
-PV=
-(1+r)
-n
-FCF
-	​
+PV=FCF/(1+R)^n
 
-
-Where:
-
+# Where:
 FCF = Free Cash Flow
 r = Discount Rate (WACC)
 n = Year
-Terminal Value
-TV=
-WACC−g
-FCF
-n+1
-	​
-
-	​
-
-
+# Terminal Value
+TV = FCF(n+1)/WACC-g
 Where:
-
 g = Terminal Growth Rate
-Enterprise Value
-EV=PV
-FCF
-	​
 
-+PV
-Terminal
-	​
+# Enterprise Value
+ EV=PV(FCF)+PV(Terminal)
 
-Equity Value
+# Equity Value
 Equity Value=EV+Cash−Debt
+
 Intrinsic Value Per Share
 Intrinsic Value=
-Shares Outstanding
-Equity Value
+Shares Outstanding/Equity Value
 	​
-
 # Code Walkthrough
-Step 1: Create Function
+
+# Step 1: Create Function
 def dcf_valuation():
 
 Defines a function named dcf_valuation().
 
 Functions help organize code and make it reusable.
 
-Step 2: Display Title
+# Step 2: Display Title
 print("===== DCF VALUATION CALCULATOR =====")
 
 Prints a heading when the program starts.
@@ -79,7 +61,7 @@ Prints a heading when the program starts.
 Output:
 
 ===== DCF VALUATION CALCULATOR =====
-Step 3: Collect User Inputs
+# Step 3: Collect User Inputs
 Current Free Cash Flow
 fcf = float(input("Current FCF (₹ Cr): "))
 
@@ -144,7 +126,7 @@ Example:
 Converted to:
 
 0.25
-Step 4: Initialize Variables
+# Step 4: Initialize Variables
 pv_fcf = 0
 current_fcf = fcf
 pv_fcf
@@ -155,7 +137,7 @@ current_fcf
 
 Stores the latest FCF value while forecasting.
 
-Step 5: Forecast Years 1–5
+# Step 5: Forecast Years 1–5
 for year in range(1, 6):
 
 Loops through:
@@ -183,7 +165,7 @@ Example:
 
 Adds discounted value to total PV.
 
-Step 6: Forecast Years 6–10
+# Step 6: Forecast Years 6–10
 for year in range(6, 11):
 
 Loops through:
@@ -203,7 +185,7 @@ pv_fcf += current_fcf / ((1 + discount_rate) ** year)
 
 Adds PV of each year's cash flow.
 
-Step 7: Calculate Terminal Value
+# Step 7: Calculate Terminal Value
 Next Year's FCF
 terminal_fcf = current_fcf * (1 + terminal_growth)
 
@@ -214,19 +196,19 @@ terminal_value = terminal_fcf / (discount_rate - terminal_growth)
 
 Assumes perpetual growth after Year 10.
 
-Step 8: Discount Terminal Value
+# Step 8: Discount Terminal Value
 pv_terminal = terminal_value / ((1 + discount_rate) ** 10)
 
 Converts terminal value into present value.
 
-Step 9: Enterprise Value
+# Step 9: Enterprise Value
 enterprise_value = pv_fcf + pv_terminal
 
 Adds:
 
 PV of forecast cash flows
 PV of terminal value
-Step 10: Equity Value
+# Step 10: Equity Value
 equity_value = enterprise_value + cash - debt
 
 Adjusts for:
@@ -237,7 +219,7 @@ Debt
 Formula:
 
 Equity Value = EV + Cash − Debt
-Step 11: Shares Outstanding
+# Step 11: Shares Outstanding
 shares_outstanding = market_cap / current_price
 
 Example:
@@ -247,12 +229,12 @@ Market Cap = ₹100000 Cr
 Share Price = ₹100
 
 Shares = 1000 Cr
-Step 12: Intrinsic Value Per Share
+# Step 12: Intrinsic Value Per Share
 intrinsic_value = equity_value / shares_outstanding
 
 Calculates fair value of one share.
 
-Step 13: Margin of Safety Price
+# Step 13: Margin of Safety Price
 mos_price = intrinsic_value * (1 - mos)
 
 Example:
@@ -262,7 +244,7 @@ Intrinsic Value = ₹500
 MOS = 25%
 
 MOS Price = ₹375
-Step 14: Display Results
+# Step 14: Display Results
 print(f"Enterprise Value      : ₹{enterprise_value:,.2f} Cr")
 
 Displays Enterprise Value.
@@ -279,7 +261,7 @@ print(f"MOS Buy Price         : ₹{mos_price:,.2f}")
 
 Displays target buy price.
 
-Step 15: Valuation Decision
+# Step 15: Valuation Decision
 if current_price < mos_price:
 
 Checks if stock trades below MOS price.
@@ -288,7 +270,7 @@ Undervalued
 print("Status: UNDERVALUED ✅")
 Overvalued
 print("Status: OVERVALUED ❌")
-Step 16: Run the Program
+# Step 16: Run the Program
 dcf_valuation()
 
 Calls the function and starts the calculator.
@@ -323,5 +305,5 @@ Monte Carlo Simulation
 Streamlit Web App
 Author
 
-Udith B
-Finance & Python Projects | Equity Research | Valuation Models | Financial Analysis 🚀
+# Udith B
+# & Python Projects | Equity Research | Valuation Models | Financial Analysis 🚀
