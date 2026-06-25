@@ -20,7 +20,7 @@ Calculates Equity Value.
 Estimates Intrinsic Value per Share.
 Applies a Margin of Safety (MOS).
 
-# Formula Used
+## Formula Used
 
 Present Value of Cash Flow
 PV=FCF/(1+R)^n
